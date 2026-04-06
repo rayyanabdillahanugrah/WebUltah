@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂</title>
+
+    <!-- ✏️ Ganti judul tab browser di atas jika mau -->
+
+    <!-- Google Font: Press Start 2P (pixel font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         🎵 BACKGROUND MUSIC
+         Ganti "music.mp3" dengan file audio milikmu.
+         Letakkan file di folder yang sama dengan index.html.
+    ============================================================ -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- ============================================================
+         SCENE 1 — OPENING POPUP
+         "Thinking of you..."
+    ============================================================ -->
+    <div id="scene1" class="scene active">
+
+        <!-- Langit pixel -->
+        <div class="pixel-sky">
+            <div class="stars-layer"></div>
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+            <div class="pixel-ground"></div>
+        </div>
+
+        <!-- Window popup Windows 95 -->
+        <div class="win95-window popup-window" id="openingPopup">
+            <div class="win95-titlebar">
+                <span class="win95-title">💝 a_message_for_you.exe</span>
+                <div class="win95-controls">
+                    <button class="win95-btn minimize" title="Minimize">_</button>
+                    <button class="win95-btn maximize" title="Maximize">□</button>
+                    <button class="win95-btn close-btn" title="Close">×</button>
+                </div>
+            </div>
+            <div class="win95-content opening-content">
+                <div class="pixel-heart-wrap">
+                    <span class="pixel-heart">💝</span>
+                </div>
+
+                <!-- ✏️ Ganti teks pembuka di sini -->
+                <p class="opening-text">
+                    Thinking of you...<br>
+                    <span class="opening-sub">click to see why</span>
+                </p>
+
+                <!-- Wrapper buat animasi tombol kabur -->
+                <div class="button-area" id="buttonArea">
+                    <button class="pixel-btn yes-btn" id="yesBtn">✓ Yes, please!</button>
+                    <button class="pixel-btn ignore-btn" id="ignoreBtn">✗ Ignore</button>
+                </div>
+
+                <p class="hint-text" id="hintText"></p>
+            </div>
+        </div>
+
+    </div><!-- /scene1 -->
+
+
+    <!-- ============================================================
+         SCENE 2 — DESKTOP (pixel desktop)
+    ============================================================ -->
+    <div id="scene2" class="scene">
+
+        <!-- Desktop background -->
+        <div class="desktop-bg">
+
+            <!-- Ikon-ikon desktop -->
+            <div class="desktop-icons">
+
+                <!-- 📁 Folder utama (klik ini untuk lanjut) -->
+                <div class="desktop-icon main-folder-icon" id="mainFolder">
+                    <div class="folder-pixel">
+                        <div class="folder-tab"></div>
+                        <div class="folder-body">
+                            <span class="folder-emoji">💝</span>
+                        </div>
+                    </div>
+                    <span class="icon-label">Open me</span>
+                </div>
+
+                <!-- Dekorasi ikon lainnya -->
+                <div class="desktop-icon deco-icon">
+                    <div class="file-emoji-icon">📄</div>
+                    <span class="icon-label">memories.txt</span>
+                </div>
+
+                <div class="desktop-icon deco-icon">
+                    <div class="file-emoji-icon">🎵</div>
+                    <span class="icon-label">our_songs.mp3</span>
+                </div>
+
+                <div class="desktop-icon deco-icon">
+                    <div class="file-emoji-icon">💌</div>
+                    <span class="icon-label">letters.doc</span>
+                </div>
+
+                <div class="desktop-icon deco-icon">
+                    <div class="file-emoji-icon">📸</div>
+                    <span class="icon-label">photos_2024</span>
+                </div>
+
+            </div><!-- /desktop-icons -->
+
+            <!-- Taskbar bawah -->
+            <div class="taskbar">
+                <button class="start-btn">
+                    <span class="start-logo">🪟</span> Start
+                </button>
+                <div class="taskbar-apps">
+                    <div class="taskbar-app-item active-app">💝 Open me</div>
+                </div>
+                <div class="taskbar-right">
+                    <div class="taskbar-clock" id="taskbarClock">00:00</div>
+                </div>
+            </div>
+
+        </div><!-- /desktop-bg -->
+
+        <!-- Overlay animasi folder terbuka -->
+        <div class="folder-open-overlay" id="folderOverlay">
+            <div class="folder-pop-anim" id="folderPopAnim">📂</div>
+            <div class="folder-pop-text">Opening...</div>
+        </div>
+
+    </div><!-- /scene2 -->
+
+
+    <!-- ============================================================
+         SCENE 3 — PILIHAN (Camera / Letter / Gift)
+    ============================================================ -->
+    <div id="scene3" class="scene">
+
+        <div class="pixel-sky soft">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud3"></div>
+        </div>
+
+        <div class="win95-window choice-window">
+            <div class="win95-titlebar pink-bar">
+                <span class="win95-title">📂 Open me — Choose one :)</span>
+                <div class="win95-controls">
+                    <button class="win95-btn close-btn" onclick="goToScene(2)">×</button>
+                </div>
+            </div>
+            <div class="win95-content">
+                <p class="choice-subtitle">What do you want to open first?</p>
+
+                <div class="choice-icons">
+                    <!-- 📷 Galeri Foto -->
+                    <div class="choice-item" id="choiceCamera" onclick="goToScene(4)">
+                        <div class="choice-icon-box cam-box">📷</div>
+                        <span class="choice-label">Galeri<br>Kenangan</span>
+                    </div>
+
+                    <!-- 💌 Pesan Personal -->
+                    <div class="choice-item" id="choiceLetter" onclick="goToScene(5)">
+                        <div class="choice-icon-box letter-box">💌</div>
+                        <span class="choice-label">Pesan<br>Untukmu</span>
+                    </div>
+
+                    <!-- 🎁 Surprise! -->
+                    <div class="choice-item" id="choiceGift" onclick="goToScene(6)">
+                        <div class="choice-icon-box gift-box">🎁</div>
+                        <span class="choice-label">Surprise<br>Ending!</span>
+                    </div>
+                </div>
+
+                <p class="choice-note">✨ Kamu bisa buka semua tiga-tiganya!</p>
+            </div>
+        </div>
+
+    </div><!-- /scene3 -->
+
+
+    <!-- ============================================================
+         SCENE 4 — GALERI KENANGAN
+    ============================================================ -->
+    <div id="scene4" class="scene">
+
+        <div class="pixel-sky soft blue-sky">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+        </div>
+
+        <div class="win95-window gallery-window">
+            <div class="win95-titlebar">
+                <span class="win95-title">📷 Galeri Kenangan — [6 photos + 1 video]</span>
+                <div class="win95-controls">
+                    <button class="win95-btn close-btn" onclick="goToScene(3)">×</button>
+                </div>
+            </div>
+            <div class="win95-content gallery-content">
+
+                <!-- ============================================================
+                     📸 FOTO GRID
+                     Ganti "foto1.jpg" s/d "foto6.jpg" dengan nama file fotomu.
+                     Letakkan file foto di folder yang sama dengan index.html.
+                     Ganti teks caption di parameter kedua openModal().
+                ============================================================ -->
+                <div class="photo-grid">
+
+                    <div class="photo-item" data-caption="Kenangan 1 💕"
+                         onclick="openModal('foto1.jpg','Kenangan 1 💕')">
+                        <img src="assets/foto1.jpg" alt="Kenangan 1"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">01</div>
+                        <div class="photo-hover-overlay">💕 Lihat</div>
+                    </div>
+
+                    <div class="photo-item" data-caption="Kenangan 2 🌸"
+                         onclick="openModal('foto2.jpg','Kenangan 2 🌸')">
+                        <img src="assetsfoto2.jpg" alt="Kenangan 2"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">02</div>
+                        <div class="photo-hover-overlay">🌸 Lihat</div>
+                    </div>
+
+                    <div class="photo-item" data-caption="Kenangan 3 ✨"
+                         onclick="openModal('foto3.jpg','Kenangan 3 ✨')">
+                        <img src="assets/foto3.jpg" alt="Kenangan 3"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">03</div>
+                        <div class="photo-hover-overlay">✨ Lihat</div>
+                    </div>
+
+                    <div class="photo-item" data-caption="Kenangan 4 🎀"
+                         onclick="openModal('foto4.jpg','Kenangan 4 🎀')">
+                        <img src="assets/foto4.jpg" alt="Kenangan 4"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">04</div>
+                        <div class="photo-hover-overlay">🎀 Lihat</div>
+                    </div>
+
+                    <div class="photo-item" data-caption="Kenangan 5 💫"
+                         onclick="openModal('foto5.jpg','Kenangan 5 💫')">
+                        <img src="assets/foto5.jpg" alt="Kenangan 5"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">05</div>
+                        <div class="photo-hover-overlay">💫 Lihat</div>
+                    </div>
+
+                    <div class="photo-item" data-caption="Kenangan 6 🌟"
+                         onclick="openModal('foto6.jpg','Kenangan 6 🌟')">
+                        <img src="assets/foto6.jpg" alt="Kenangan 6"
+                             onerror="this.parentElement.classList.add('ph');this.remove()">
+                        <div class="photo-num">06</div>
+                        <div class="photo-hover-overlay">🌟 Lihat</div>
+                    </div>
+
+                </div><!-- /photo-grid -->
+
+                <!-- ============================================================
+                     🎬 VIDEO
+                     Ganti "video.mp4" dengan nama file videomu.
+                ============================================================ -->
+                <div class="video-wrapper">
+                    <div class="video-label">🎬 Our Video</div>
+                    <video controls preload="metadata">
+                        <source src="video.mp4" type="video/mp4">
+                        <p class="video-fallback">📽️ Letakkan file "video.mp4" di folder yang sama.</p>
+                    </video>
+                </div>
+
+                <!-- Tombol lanjut ke pesan -->
+                <button class="pixel-btn next-scene-btn" onclick="goToScene(5)">
+                    Baca Pesanku ➜
+                </button>
+
+            </div><!-- /gallery-content -->
+        </div><!-- /gallery-window -->
+
+        <!-- ===== Modal Preview Foto ===== -->
+        <div class="photo-modal" id="photoModal" onclick="closeModal()">
+            <div class="modal-inner" onclick="event.stopPropagation()">
+                <div class="win95-titlebar">
+                    <span class="win95-title" id="modalTitle">Preview</span>
+                    <div class="win95-controls">
+                        <button class="win95-btn close-btn" onclick="closeModal()">×</button>
+                    </div>
+                </div>
+                <div class="modal-img-wrap">
+                    <img id="modalImg" src="" alt="Preview">
+                </div>
+                <div class="modal-footer">
+                    <span id="modalCaption" class="modal-caption"></span>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /scene4 -->
+
+
+    <!-- ============================================================
+         SCENE 5 — PESAN PERSONAL
+    ============================================================ -->
+    <div id="scene5" class="scene">
+
+        <div class="pixel-sky soft pink-sky">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+        </div>
+
+        <div class="win95-window message-window">
+            <div class="win95-titlebar pink-bar">
+                <span class="win95-title">💌 Pesan Untukmu — dari_aku.txt</span>
+                <div class="win95-controls">
+                    <button class="win95-btn close-btn" onclick="goToScene(3)">×</button>
+                </div>
+            </div>
+            <div class="win95-content message-content">
+
+                <div class="envelope-anim">💌</div>
+
+                <!-- Area teks dengan efek typing -->
+                <div class="typing-box">
+                    <div class="typing-text" id="typingText"></div>
+                    <span class="typing-cursor" id="typingCursor">▌</span>
+                </div>
+
+                <!-- Tombol muncul setelah selesai mengetik -->
+                <div class="msg-nav" id="msgNav" style="display:none;">
+                    <button class="pixel-btn next-scene-btn" onclick="goToScene(6)">
+                        🎁 Lihat Surprise ➜
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div><!-- /scene5 -->
+
+
+    <!-- ============================================================
+         SCENE 6 — SURPRISE ENDING
+    ============================================================ -->
+    <div id="scene6" class="scene">
+
+        <!-- Canvas confetti (diisi oleh JS) -->
+        <canvas id="confettiCanvas"></canvas>
+
+        <!-- Isi konten di tengah -->
+        <div class="surprise-wrap">
+
+            <!-- ✏️ Ganti nama dan subtitle di bawah -->
+            <div class="hbd-main">
+                <div class="hbd-row">
+                    <span class="hbd-word" id="hbdW1">Happy</span>
+                </div>
+                <div class="hbd-row">
+                    <span class="hbd-word" id="hbdW2">Birthday</span>
+                </div>
+                <div class="hbd-row">
+                    <span class="hbd-heart-big" id="hbdHeart">❤️</span>
+                </div>
+            </div>
+
+            <!-- ✏️ Ganti nama penerima di sini -->
+            <div class="hbd-name" id="hbdName">[ Nama Kamu ]</div>
+
+            <div class="hbd-subtitle">
+                Semoga hari ini menjadi hari yang paling indah ✨
+            </div>
+
+            <!-- Tombol back & replay -->
+            <div class="surprise-btns">
+                <button class="pixel-btn back-btn" onclick="goToScene(3)">
+                    ← Kembali
+                </button>
+                <button class="pixel-btn replay-btn" onclick="replayFromStart()">
+                    ↺ Ulangi dari Awal
+                </button>
+            </div>
+
+        </div><!-- /surprise-wrap -->
+
+    </div><!-- /scene6 -->
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
