@@ -30,9 +30,9 @@ Kamu adalah alasan di balik setiap senyumku, setiap tawa, dan setiap hari yang t
 
 Teruslah bersinar seperti bintang yang paling terang — karena dunia ini jauh lebih indah dengan kehadiranmu.
 
-Semoga semua impianmu terwujud, semua doamu dikabulkan, dan semua cintamu dikembalikan berlipat ganda. 💫
+Semoga semua impianmu terwujud, semua doamu dikabulkan, dan semua cintamu dikembalikan berlipat ganda. 🤑
 
-I love you more than words can ever say... ❤️`;
+I love you more than words can ever say... 🤟🏻`;
 
 /**
  * Kecepatan mengetik (ms per karakter)
