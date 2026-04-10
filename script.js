@@ -39,10 +39,9 @@ const hbdName       = document.getElementById('hbdName');
 
 
 let currentScene = 1;
-let typingInterval = null;  // referensi interval typing
+let typingInterval = null;
 
 function goToScene(n) {
-    // Sembunyikan semua scene
     scenes.forEach(s => {
         s.classList.remove('active');
         s.style.display = 'none';
