@@ -1,14 +1,5 @@
-/* ================================================================
-   BIRTHDAY WEBSITE — style.css
-   Pixel / Retro Aesthetic (Windows 95 + Pastel)
-
-   ✏️ CARA GANTI TEMA WARNA:
-   Cukup ubah nilai di bagian :root di bawah ini.
-================================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* ── CSS Variables (tema warna) ──────────────────────────────── */
 :root {
     --pink:         #ffb3d9;
     --pink-mid:     #ff85c0;
@@ -37,7 +28,6 @@
     --font-px:      'Press Start 2P', monospace;
 }
 
-/* ── Reset & Base ────────────────────────────────────────────── */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -56,7 +46,6 @@ html, body {
 
 button { cursor: pointer; }
 
-/* ── Scene System ────────────────────────────────────────────── */
 .scene {
     position: fixed;
     inset: 0;
@@ -77,9 +66,6 @@ button { cursor: pointer; }
     to   { opacity: 1; transform: scale(1); }
 }
 
-/* ================================================================
-   PIXEL SKY
-================================================================ */
 .pixel-sky {
     position: absolute;
     inset: 0;
@@ -104,7 +90,6 @@ button { cursor: pointer; }
     background: linear-gradient(180deg, #ffe0f0 0%, #ffd0ea 50%, #f5e0ff 100%);
 }
 
-/* Pixel Ground strip */
 .pixel-ground {
     position: absolute;
     bottom: 0;
@@ -119,7 +104,6 @@ button { cursor: pointer; }
     border-top: 4px solid #50a050;
 }
 
-/* Stars background layer */
 .stars-layer {
     position: absolute;
     inset: 0;
@@ -138,14 +122,12 @@ button { cursor: pointer; }
     to   { opacity: 0.7; }
 }
 
-/* ── Pixel Clouds ──────────────────────────────────────────── */
 .cloud {
     position: absolute;
     background: rgba(255,255,255,0.95);
     border-radius: 2px;
 }
 
-/* Cloud 1 — kiri atas */
 .cloud1 {
     width: 88px;
     height: 24px;
@@ -159,7 +141,6 @@ button { cursor: pointer; }
     animation: floatCloud 9s ease-in-out infinite;
 }
 
-/* Cloud 2 — kanan atas */
 .cloud2 {
     width: 112px;
     height: 24px;
@@ -172,7 +153,6 @@ button { cursor: pointer; }
     animation: floatCloud 12s ease-in-out infinite reverse;
 }
 
-/* Cloud 3 — tengah */
 .cloud3 {
     width: 64px;
     height: 20px;
@@ -189,20 +169,15 @@ button { cursor: pointer; }
     50%      { transform: translateX(18px); }
 }
 
-/* ================================================================
-   WINDOWS 95 WINDOW
-================================================================ */
 .win95-window {
     position: relative;
     background: var(--win-gray);
 
-    /* Win95 bevel border */
     border-top:    2px solid var(--win-gray-lt);
     border-left:   2px solid var(--win-gray-lt);
     border-right:  2px solid #404040;
     border-bottom: 2px solid #404040;
 
-    /* Inner bevel */
     outline: 1px solid #808080;
 
     box-shadow: 4px 4px 0 rgba(0,0,0,0.4);
@@ -215,7 +190,6 @@ button { cursor: pointer; }
     to   { transform: scale(1);    opacity: 1; }
 }
 
-/* Title bar */
 .win95-titlebar {
     display: flex;
     align-items: center;
@@ -240,7 +214,6 @@ button { cursor: pointer; }
     letter-spacing: 0.5px;
 }
 
-/* Title bar buttons */
 .win95-controls { display: flex; gap: 2px; flex-shrink: 0; }
 
 .win95-btn {
@@ -270,14 +243,10 @@ button { cursor: pointer; }
     border-bottom: 1px solid var(--win-gray-lt);
 }
 
-/* Inner content area */
 .win95-content {
     padding: 18px 20px 20px;
 }
 
-/* ================================================================
-   PIXEL BUTTONS (general)
-================================================================ */
 .pixel-btn {
     font-family: var(--font-px);
     font-size: 8px;
@@ -312,19 +281,17 @@ button { cursor: pointer; }
 }
 .yes-btn:hover { background: #88e088; }
 
-/* Ignore button (moves away on hover) */
 .ignore-btn {
     background: #f0a8a8;
     border-top:    2px solid #ffd0d0;
     border-left:   2px solid #ffd0d0;
     border-right:  2px solid #880000;
     border-bottom: 2px solid #880000;
-    position: relative; /* will move via JS transform */
+    position: relative;
     white-space: nowrap;
 }
 .ignore-btn:hover { background: #e88888; }
 
-/* Next / action buttons */
 .next-scene-btn {
     background: var(--pink);
     border-top:    2px solid #ffddf0;
@@ -336,7 +303,6 @@ button { cursor: pointer; }
 }
 .next-scene-btn:hover { background: var(--pink-mid); }
 
-/* Replay button */
 .replay-btn {
     background: var(--yellow);
     border-top:    2px solid #fffff0;
@@ -348,7 +314,6 @@ button { cursor: pointer; }
 }
 .replay-btn:hover { background: #f0e070; }
 
-/* Back button */
 .back-btn {
     background: var(--blue);
     border-top:    2px solid #eef8ff;
@@ -360,9 +325,6 @@ button { cursor: pointer; }
 }
 .back-btn:hover { background: var(--blue-mid); }
 
-/* ================================================================
-   SCENE 1 — OPENING POPUP
-================================================================ */
 .popup-window {
     width: min(400px, 92vw);
 }
@@ -405,7 +367,6 @@ button { cursor: pointer; }
     margin-top: 4px;
 }
 
-/* Wrapper tombol Yes + Ignore */
 .button-area {
     position: relative;
     display: flex;
@@ -431,9 +392,6 @@ button { cursor: pointer; }
     to   { opacity:1; transform:translateY(0); }
 }
 
-/* ================================================================
-   SCENE 2 — DESKTOP
-================================================================ */
 #scene2 { align-items: stretch; }
 
 .desktop-bg {
@@ -445,7 +403,6 @@ button { cursor: pointer; }
     position: relative;
 }
 
-/* Pixel scanlines overlay on desktop */
 .desktop-bg::before {
     content: '';
     position: absolute;
@@ -459,7 +416,6 @@ button { cursor: pointer; }
     z-index: 1;
 }
 
-/* Icons grid on desktop */
 .desktop-icons {
     flex: 1;
     padding: 24px 20px;
@@ -490,7 +446,6 @@ button { cursor: pointer; }
     outline: none;
 }
 
-/* CSS Pixel Art Folder */
 .folder-pixel {
     width: 52px;
     height: 44px;
@@ -525,7 +480,6 @@ button { cursor: pointer; }
     animation: heartbeat 2s ease-in-out infinite;
 }
 
-/* Main folder — special glow effect */
 .main-folder-icon .folder-body {
     background: linear-gradient(180deg, #ffd040 0%, #f8a020 100%);
     box-shadow: 0 0 8px rgba(255,200,0,0.5);
@@ -550,7 +504,6 @@ button { cursor: pointer; }
     max-width: 78px;
 }
 
-/* Taskbar */
 .taskbar {
     height: 40px;
     background: var(--win-gray);
@@ -622,7 +575,6 @@ button { cursor: pointer; }
     letter-spacing: 1px;
 }
 
-/* Folder opening overlay */
 .folder-open-overlay {
     position: fixed;
     inset: 0;
@@ -658,9 +610,6 @@ button { cursor: pointer; }
     50% { opacity: 0; }
 }
 
-/* ================================================================
-   SCENE 3 — CHOICE
-================================================================ */
 .choice-window {
     width: min(480px, 94vw);
 }
@@ -737,9 +686,6 @@ button { cursor: pointer; }
     letter-spacing: 0.3px;
 }
 
-/* ================================================================
-   SCENE 4 — GALLERY
-================================================================ */
 #scene4 { align-items: center; }
 
 .gallery-window {
@@ -767,7 +713,6 @@ button { cursor: pointer; }
     border-bottom: 1px solid var(--pink-dark);
 }
 
-/* Photo Grid */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -804,7 +749,6 @@ button { cursor: pointer; }
 
 .photo-item:hover img { transform: scale(1.06); }
 
-/* Placeholder bila foto tidak ditemukan */
 .photo-item.ph {
     display: flex;
     align-items: center;
@@ -827,7 +771,6 @@ button { cursor: pointer; }
     padding: 0 4px;
 }
 
-/* Nomor foto (muncul di pojok) */
 .photo-num {
     position: absolute;
     top: 4px; left: 4px;
@@ -838,7 +781,6 @@ button { cursor: pointer; }
     letter-spacing: 1px;
 }
 
-/* Hover overlay */
 .photo-hover-overlay {
     position: absolute;
     inset: 0;
@@ -855,7 +797,6 @@ button { cursor: pointer; }
 
 .photo-item:hover .photo-hover-overlay { opacity: 1; }
 
-/* Video */
 .video-wrapper {
     margin-bottom: 16px;
 }
@@ -884,7 +825,6 @@ button { cursor: pointer; }
     text-align: center;
 }
 
-/* ── Photo Modal ─────────────────────────────────────────────── */
 .photo-modal {
     display: none;
     position: fixed;
@@ -934,9 +874,6 @@ button { cursor: pointer; }
     color: var(--text);
 }
 
-/* ================================================================
-   SCENE 5 — PERSONAL MESSAGE
-================================================================ */
 .message-window {
     width: min(500px, 94vw);
 }
@@ -958,7 +895,6 @@ button { cursor: pointer; }
     50%      { transform: translateY(-10px) rotate(4deg); }
 }
 
-/* Typing box (textarea look) */
 .typing-box {
     width: 100%;
     min-height: 120px;
@@ -992,9 +928,6 @@ button { cursor: pointer; }
 
 .msg-nav { width: 100%; text-align: center; margin-top: 10px; }
 
-/* ================================================================
-   SCENE 6 — SURPRISE ENDING
-================================================================ */
 #scene6 {
     background: linear-gradient(135deg,
         #ff90c0 0%,
@@ -1025,7 +958,6 @@ button { cursor: pointer; }
     padding: 20px;
 }
 
-/* HBD Text */
 .hbd-main {
     display: flex;
     flex-direction: column;
@@ -1060,7 +992,6 @@ button { cursor: pointer; }
     to   { transform: translateY(0)     scale(1);   opacity: 1; }
 }
 
-/* Name */
 .hbd-name {
     font-size: clamp(9px, 2vw, 14px);
     color: white;
@@ -1078,7 +1009,6 @@ button { cursor: pointer; }
     line-height: 2;
 }
 
-/* Buttons row */
 .surprise-btns {
     display: flex;
     gap: 14px;
@@ -1088,9 +1018,6 @@ button { cursor: pointer; }
     animation: hbdDrop 0.6s ease 1.4s both;
 }
 
-/* ================================================================
-   RESPONSIVE
-================================================================ */
 @media (max-width: 520px) {
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
 
