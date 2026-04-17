@@ -18,7 +18,6 @@ const TYPING_SPEED = 32;
 const MUSIC_VOLUME = 0.28;
 
 
-/* ELEMENT */
 const bgMusic     = document.getElementById('bgMusic');
 const scenes      = document.querySelectorAll('.scene');
 const yesBtn      = document.getElementById('yesBtn');
@@ -39,10 +38,9 @@ const hbdName       = document.getElementById('hbdName');
 
 
 let currentScene = 1;
-let typingInterval = null;  // referensi interval typing
+let typingInterval = null;
 
 function goToScene(n) {
-    // Sembunyikan semua scene
     scenes.forEach(s => {
         s.classList.remove('active');
         s.style.display = 'none';
@@ -103,8 +101,8 @@ function moveIgnoreBtn() {
 }
 
 if (ignoreBtn) {
-    ignoreBtn.addEventListener('mouseover', moveIgnoreBtn);  // kabur saat hover
-    ignoreBtn.addEventListener('click',     moveIgnoreBtn);  // dan saat diklik
+    ignoreBtn.addEventListener('mouseover', moveIgnoreBtn);
+    ignoreBtn.addEventListener('click',     moveIgnoreBtn);
 }
 
 if (yesBtn) {
@@ -151,11 +149,6 @@ document.querySelectorAll('.deco-icon').forEach(ic => {
 
 
 
-/**
- * preview foto
- * @param {string} src    - path file foto
- * @param {string} caption - teks judul/caption
- */
 function openModal(src, caption) {
     modalImg.src = src;
     modalTitle.textContent   = caption;
@@ -206,14 +199,12 @@ function initMessageScene() {
         if (idx < text.length) {
             typingText.textContent += text[idx];
             idx++;
-            /* Scroll ke bawah secara otomatis */
             const box = typingText.parentElement;
             box.scrollTop = box.scrollHeight;
         } else {
             clearInterval(typingInterval);
             typingInterval = null;
 
-            /* Sembunyikan cursor, tampilkan tombol next */
             typingCursor.style.display = 'none';
             msgNav.style.display = 'block';
             msgNav.style.animation = 'fadeInUp 0.5s ease both';
@@ -239,7 +230,7 @@ function stopMusic() {
 }
 
 
-let confettiAnim = null;  // requestAnimationFrame handle
+let confettiAnim = null;
 
 function initSurpriseScene() {
     if (hbdName) hbdName.textContent = RECIPIENT_NAME;
