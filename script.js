@@ -1,17 +1,18 @@
 const RECIPIENT_NAME = "someone";
 
 const BIRTHDAY_MESSAGE =
-`selamat ulang tahun.
+`selamat menyambut serpihan rasa
+yang telah melebur dalam fananya waktu.
 
-di hari yang spesial ini, aku ingin kamu tahu bahwa setiap momen bersamamu adalah hadiah paling berharga yang pernah aku terima.
+kau adalah part terbaik
+yang selalu kubuka dan kukenang kembali.
+melihatmu dari jauh, itulah yang bisa kulakukan.
+asal aku tahu dan bisa melihat senyuman itu.
+karena jika kamu bahagia, aku pun begitu
 
-kamu adalah alasan di balik setiap senyumku, setiap tawa, dan setiap hari yang terasa lebih berwarna dan bermakna 🫂
-
-teruslah bersinar seperti bintang yang paling terang — karena dunia ini jauh lebih indah dengan kehadiranmu 🤟🏻
-
-semoga semua impianmu terwujud, semua doamu dikabulkan, dan semua cintamu dikembalikan berlipat ganda 🤑 
-
-i love you more than words can ever say.`;
+untukmu, ucapan sederhana dariku.
+momen ini terlalu disayangkan untuk hilang.
+kali ini, tolong rasakan hadirnya.`;
 
 const TYPING_SPEED = 32;
 
@@ -301,7 +302,6 @@ function startConfetti() {
         ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
 
         particles.forEach(p => {
-            /* Update posisi */
             p.x  += p.vx;
             p.y  += p.vy;
             p.rotation += p.rotSpeed;
@@ -328,7 +328,7 @@ function startConfetti() {
                 case 'star':
                     drawStar(ctx, p.w / 2);
                     break;
-                default: /* rect */
+                default:
                     ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
             }
 
