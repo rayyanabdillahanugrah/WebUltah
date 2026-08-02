@@ -379,6 +379,7 @@ window.addEventListener('resize', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (hbdName) hbdName.textContent = RECIPIENT_NAME;
-
+    
+    playMusic();
     goToScene(1);
 });
