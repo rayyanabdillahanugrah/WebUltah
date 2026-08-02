@@ -107,7 +107,10 @@ if (ignoreBtn) {
 }
 
 if (yesBtn) {
-    yesBtn.addEventListener('click', () => goToScene(2));
+    yesBtn.addEventListener('click', () => {
+        playMusic();
+        goToScene(2)
+    });
 }
 
 
@@ -380,6 +383,5 @@ window.addEventListener('resize', () => {
 document.addEventListener('DOMContentLoaded', () => {
     if (hbdName) hbdName.textContent = RECIPIENT_NAME;
     
-    playMusic();
     goToScene(1);
 });
